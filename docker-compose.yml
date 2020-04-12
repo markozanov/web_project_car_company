@@ -1,0 +1,12 @@
+version: '3'
+services:
+  postgres-db:
+    container_name: postgres-db
+    image: postgres:latest
+    restart: always
+    ports:
+      - "5432:4545"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: verysecure
+      POSTGRES_DB: web_project_car_company
