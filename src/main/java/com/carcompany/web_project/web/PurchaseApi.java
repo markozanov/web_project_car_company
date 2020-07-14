@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000", "*"})
 @RequestMapping(path = "/purchases", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
 public class PurchaseApi {
     private final PurchaseService purchaseService;
