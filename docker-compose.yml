@@ -10,3 +10,24 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: verysecure
       POSTGRES_DB: web_project_car_company
+
+  backendcontainer:
+    container_name: backendcontainer
+    image: backendimage
+    restart: always
+    ports:
+      - "9000:9000"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=docker"
+    depends_on:
+      - pgcontainer
+
+  frontendcontainer:
+    container_name: frontendcontainer
+    image: frontendimage
+    restart: always
+    ports:
+      - "8080:80"
+    depends_on:
+      - backendcontainer
+
